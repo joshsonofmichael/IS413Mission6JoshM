@@ -12,7 +12,11 @@ public class HomeController : Controller
     // {
     //     _logger = logger;
     // }
-
+    private MoviesContext _context; // set up instance of database
+    public HomeController(MoviesContext temp) 
+    {
+        _context = temp; // assign instance to the current database
+    }
     public IActionResult Index()
     {
         return View();
@@ -22,10 +26,17 @@ public class HomeController : Controller
     {
         return View();
     }
-
+    [HttpGet]
     public IActionResult AddMovie()
     {
         return View();
+    }
+    [HttpPost]
+    public IActionResult AddMovie(Movie movie)
+    {
+        _context.Movies.Add(movie); // add record to database
+        _context.SaveChanges();
+        return View("Success", movie);
     }
 
     public IActionResult Privacy()

@@ -1,3 +1,4 @@
+
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.SignalR;
 
@@ -5,7 +6,8 @@ namespace Mission06_Michaelson.Models
 {
   public class Movie
   {
-    
+    [Key]
+    public int MovieId {get; set;}
     
     public required string Title {get; set;}
     public required string Category {get; set;}
