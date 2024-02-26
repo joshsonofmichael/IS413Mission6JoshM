@@ -2570,11 +2570,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/joshuamichaelson/Documents/IS413/Mission06_Michaelson-1.worktrees/Mission07_Michaelson/Mission06_Michaelson/Mission06_Michaelson.csproj",
-      "projectName": "Mission06_Michaelson",
-      "projectPath": "/Users/joshuamichaelson/Documents/IS413/Mission06_Michaelson-1.worktrees/Mission07_Michaelson/Mission06_Michaelson/Mission06_Michaelson.csproj",
+      "projectUniqueName": "/Users/joshuamichaelson/Documents/IS413/Mission06_Michaelson-1.worktrees/Mission07_Michaelson/Mission07_Michaelson/Mission07_Michaelson.csproj",
+      "projectName": "Mission07_Michaelson",
+      "projectPath": "/Users/joshuamichaelson/Documents/IS413/Mission06_Michaelson-1.worktrees/Mission07_Michaelson/Mission07_Michaelson/Mission07_Michaelson.csproj",
       "packagesPath": "/Users/joshuamichaelson/.nuget/packages/",
-      "outputPath": "/Users/joshuamichaelson/Documents/IS413/Mission06_Michaelson-1.worktrees/Mission07_Michaelson/Mission06_Michaelson/obj/",
+      "outputPath": "/Users/joshuamichaelson/Documents/IS413/Mission06_Michaelson-1.worktrees/Mission07_Michaelson/Mission07_Michaelson/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/joshuamichaelson/.nuget/NuGet/NuGet.Config"

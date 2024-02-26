@@ -6,14 +6,9 @@ namespace Mission07_Michaelson.Controllers;
 
 public class HomeController : Controller
 {
-    // private readonly ILogger<HomeController> _logger;
 
-    // public HomeController(ILogger<HomeController> logger)
-    // {
-    //     _logger = logger;
-    // }
-    private MoviesContext _context; // set up instance of database
-    public HomeController(MoviesContext temp) 
+    private MovieCollectionContext _context; // set up instance of database
+    public HomeController(MovieCollectionContext temp) 
     {
         _context = temp; // assign instance to the current database
     }
@@ -29,7 +24,8 @@ public class HomeController : Controller
     [HttpGet]
     public IActionResult AddMovie()
     {
-        return View();
+        ViewBag.Categories = _context.Categories.OrderBy(c => c.CategoryName).ToList();
+        return View("MovieNewEdit");
     }
     [HttpPost]
     public IActionResult AddMovie(Movie movie)
@@ -38,7 +34,40 @@ public class HomeController : Controller
         _context.SaveChanges();
         return View("Success", movie);
     }
+    public IActionResult ViewCollection()
+    {
+        var movies = _context.Movies
+        .OrderBy(m => m.Title)
+        .ToList();
+        ViewBag.Categories = _context.Categories.OrderBy(c => c.CategoryName).ToList();
+        return View(movies);
+    }
+    [HttpGet]
+    public IActionResult Edit(int id)
+    {
+        var Movie = _context.Movies.Single(m => m.MovieId == id);
+        ViewBag.Categories = _context.Categories.OrderBy(c => c.CategoryName).ToList();
+        return View("MovieNewEdit", Movie);
+    }
+    [HttpPost]
+    public IActionResult Edit(Movie movie)
+    {
+        _context.Update(movie);
+        _context.SaveChanges();
+        return RedirectToAction("ViewCollection");
+    }
 
+    public IActionResult ConfirmDelete(int id)
+    {
+        var movie = _context.Movies.Single(m => m.MovieId == id);
+        return View("Delete", movie);
+    }
+    public IActionResult Delete(Movie movie)
+    {
+        _context.Movies.Remove(movie);
+        _context.SaveChanges();
+        return RedirectToAction("ViewCollection");
+    }
     public IActionResult Privacy()
     {
         return View();
